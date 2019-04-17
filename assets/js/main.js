@@ -1,7 +1,7 @@
 const btnStart = document.querySelector('.controls__play');
 const btnReset = document.querySelector('.controls__reset');
 const display = document.querySelector('.display');
-const setTimePomo = 60 * 25;
+const setTimePomo = 60 * 25 - 1;
 const setTimeBreak = 60 * 5;
 const setTimeLongBreak = 60 * 15;
 let pomo = 0;
@@ -28,7 +28,7 @@ function timerPomo() {
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    if (--timer < 0) {
+    if (timer-- < 0) {
       pomo++
       console.log('Pomo: ' + pomo)
       clearInterval(setnterval);
@@ -39,7 +39,7 @@ function timerPomo() {
 
       return timerBreak();
     }
-  }, 1);
+  }, 1000);
 }
 
 function timerBreak() {
@@ -52,7 +52,7 @@ function timerBreak() {
       clearInterval(setnterval);
       return timerPomo();
     }
-  }, 100);
+  }, 1000);
 }
 
 function timerLongBreak() {
@@ -65,7 +65,7 @@ function timerLongBreak() {
       clearInterval(setnterval);
       reset()
     }
-  }, 100);
+  }, 1000);
 }
 
 function startTimer() {
