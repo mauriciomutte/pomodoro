@@ -5,6 +5,7 @@ const setTimePomo = 60 * 25 - 1;
 const setTimeBreak = 60 * 5;
 const setTimeLongBreak = 60 * 15;
 let pomo = 0;
+let setnterval;
 
 function reset() {
   display.textContent = '25:00';
@@ -70,10 +71,11 @@ function timerLongBreak() {
 
 function startTimer() {
   timerPomo()
-  
 }
 
 btnStart.addEventListener('click', function(){
+  clearInterval(setnterval);
+  reset();
   startTimer();
 });
 
