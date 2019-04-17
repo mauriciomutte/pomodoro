@@ -1,26 +1,83 @@
-const btn = document.querySelector('.controls__play')
+const btnStart = document.querySelector('.controls__play');
+const btnReset = document.querySelector('.controls__reset');
+const display = document.querySelector('.display');
+const setTimePomo = 60 * 25;
+const setTimeBreak = 60 * 5;
+const setTimeLongBreak = 60 * 15;
+let pomo = 0;
 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-        document.title = minutes + ":" + seconds + ' | Pomodoro'
-
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+function reset() {
+  display.textContent = '25:00';
+  document.title = 'Pomodoro';
 }
 
-btn.addEventListener('click', function() {
-    var fiveMinutes = 60 * 25;
-    display = document.querySelector('.timer');
-    startTimer(fiveMinutes, display);
+function timerConfig(timer) {
+  minutes = parseInt(timer / 60, 10)
+  seconds = parseInt(timer % 60, 10);
+
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  display.textContent = minutes + ":" + seconds;
+  document.title = minutes + ":" + seconds + ' | Pomodoro';
+}
+
+function timerPomo() {
+  let timer = setTimePomo;
+
+  setnterval = setInterval(function() {
+    timerConfig(timer);
+
+    if (--timer < 0) {
+      pomo++
+      console.log('Pomo: ' + pomo)
+      clearInterval(setnterval);
+
+      if (pomo === 1) {
+        return timerLongBreak();
+      }
+
+      return timerBreak();
+    }
+  }, 1);
+}
+
+function timerBreak() {
+  let timer = setTimeBreak;
+
+  setnterval = setInterval(function() {
+    timerConfig(timer);
+
+    if (--timer < 0) {
+      clearInterval(setnterval);
+      return timerPomo();
+    }
+  }, 100);
+}
+
+function timerLongBreak() {
+  let timer = setTimeLongBreak;
+
+  setnterval = setInterval(function() {
+    timerConfig(timer);
+
+    if (--timer < 0) {
+      clearInterval(setnterval);
+      reset()
+    }
+  }, 100);
+}
+
+function startTimer() {
+  timerPomo()
+  
+}
+
+btnStart.addEventListener('click', function(){
+  startTimer();
+});
+
+btnReset.addEventListener('click', function(){
+  clearInterval(setnterval);
+  reset();
 });
