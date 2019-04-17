@@ -26,6 +26,7 @@ main {
 .display {
   font-size: 10vw;
   letter-spacing: 10px;
+  max-width: 500px; 
   text-shadow: 0px 0px 10px rgba(0,0,0,0.75);
 }
 
