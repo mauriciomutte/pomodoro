@@ -29,7 +29,7 @@ function timerPomo() {
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    if (timer-- < 0) {
+    if (--timer < 0) {
       pomo++
       console.log('Pomo: ' + pomo)
       clearInterval(setnterval);
