@@ -34,7 +34,7 @@ function timerPomo() {
       console.log('Pomo: ' + pomo)
       clearInterval(setnterval);
 
-      if (pomo === 1) {
+      if (pomo === 4) {
         return timerLongBreak();
       }
 
