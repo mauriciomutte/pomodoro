@@ -11,6 +11,8 @@ let setnterval;
 
 function reset() {
   display.textContent = '25:00';
+  progress.style.width = 0;
+  progressWidth = 0;
   document.title = 'Pomodoro';
 }
 
@@ -31,6 +33,9 @@ function timerPomo() {
   setnterval = setInterval(function() {
     timerConfig(timer);
 
+    progress.style.width = (progressWidth * 100) / setTimePomo + '%';
+    ++progressWidth;
+
     if (--timer < 0) {
       pomo++
       console.log('Pomo: ' + pomo)
@@ -48,8 +53,12 @@ function timerPomo() {
 function timerBreak() {
   let timer = setTimeBreak;
 
+  progressWidth = timer; 
   setnterval = setInterval(function() {
     timerConfig(timer);
+
+    progress.style.width = ((progressWidth * 100) / setTimeBreak) + '%';
+    progressWidth--;
 
     if (--timer < 0) {
       clearInterval(setnterval);
@@ -61,8 +70,12 @@ function timerBreak() {
 function timerLongBreak() {
   let timer = setTimeLongBreak;
 
+  progressWidth = timer; 
   setnterval = setInterval(function() {
     timerConfig(timer);
+
+    progress.style.width = (progressWidth * 100) / setTimeLongBreak + '%';
+    progressWidth--;
 
     if (--timer < 0) {
       clearInterval(setnterval);
