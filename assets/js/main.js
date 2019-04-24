@@ -44,9 +44,11 @@ function timerPomo() {
 
       if (pomo === 4) {
         audio.play();
+        audio.play();
         return timerLongBreak();
       }
 
+      audio.play();
       audio.play();
       return timerBreak();
     }
@@ -66,6 +68,7 @@ function timerBreak() {
     if (--timer < 0) {
       clearInterval(setnterval);
       audio.play();
+      audio.play();
       return timerPomo();
     }
   }, 1000);
@@ -83,6 +86,7 @@ function timerLongBreak() {
 
     if (--timer < 0) {
       clearInterval(setnterval);
+      audio.play();
       audio.play();
       reset()
     }
