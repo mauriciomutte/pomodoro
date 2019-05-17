@@ -14,6 +14,14 @@ body {
   font-family: 'Fugaz One', cursive;
 }
 
+.progress {
+  background-color: #d14d4d;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+}
+
 main {
   align-items: center;
   display: flex;
@@ -23,15 +31,6 @@ main {
   position: absolute;
   text-align: center;
   width: 100%;
-}
-
-.progress {
-  transition: all .1s;
-  background-color: #fff;
-  left: 0;
-  position: absolute;
-  top: 0;
-  height: 3px;
 }
 
 /* DISPLAY */
