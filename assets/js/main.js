@@ -6,14 +6,14 @@ const audio = document.querySelector('.audio');
 const setTimePomo = 60 * 25 - 1;
 const setTimeBreak = 60 * 5;
 const setTimeLongBreak = 60 * 15;
-let progressWidth = 0;
+let progressHeight = 0;
 let pomo = 0;
 let setnterval;
 
 function reset() {
   display.textContent = '25:00';
-  progress.style.width = 0;
-  progressWidth = 0;
+  progress.style.Height = 0;
+  progressHeight = 0;
   document.title = 'Pomodoro';
 }
 
@@ -34,8 +34,8 @@ function timerPomo() {
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    progress.style.width = (progressWidth * 100) / setTimePomo + '%';
-    ++progressWidth;
+    progress.style.height = (progressHeight * 100) / setTimePomo + '%';
+    ++progressHeight;
 
     if (--timer < 0) {
       pomo++
@@ -58,12 +58,12 @@ function timerPomo() {
 function timerBreak() {
   let timer = setTimeBreak;
 
-  progressWidth = timer; 
+  progressHeight = timer; 
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    progress.style.width = ((progressWidth * 100) / setTimeBreak) + '%';
-    progressWidth--;
+    progress.style.height = ((progressHeight * 100) / setTimeBreak) + '%';
+    progressHeight--;
 
     if (--timer < 0) {
       clearInterval(setnterval);
@@ -77,12 +77,12 @@ function timerBreak() {
 function timerLongBreak() {
   let timer = setTimeLongBreak;
 
-  progressWidth = timer; 
+  progressHeight = timer; 
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    progress.style.width = (progressWidth * 100) / setTimeLongBreak + '%';
-    progressWidth--;
+    progress.style.height = (progressHeight * 100) / setTimeLongBreak + '%';
+    progressHeight--;
 
     if (--timer < 0) {
       clearInterval(setnterval);
