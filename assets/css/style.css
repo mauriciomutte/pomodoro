@@ -20,6 +20,10 @@ body {
   left: 0;
   width: 100%;
   position: absolute;
+
+  -webkit-box-shadow: inset 0px 14px 20px -7px rgba(0,0,0,.4);
+  -moz-box-shadow: inset 0px 14px 20px -7px rgba(0,0,0,.4);
+  box-shadow: inset 0px 14px 20px -7px rgba(0,0,0,.4);
 }
 
 main {
