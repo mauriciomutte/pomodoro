@@ -3,17 +3,19 @@ const btnReset = document.querySelector('.controls__reset');
 const display = document.querySelector('.display');
 const progress = document.querySelector('.progress')
 const audio = document.querySelector('.audio');
-const setTimePomo = 60 * 25 - 1;
+const setTimePomo = 10;
 const setTimeBreak = 60 * 5;
 const setTimeLongBreak = 60 * 15;
-let progressHeight = 0;
 let pomo = 0;
 let setnterval;
 
+function progressBar(time, valFix) {
+  progress.style.height = ((time * 100) / valFix) + '%';
+}
+
 function reset() {
   display.textContent = '25:00';
-  progress.style.Height = 0;
-  progressHeight = 0;
+  progress.style.height = '0%';
   document.title = 'Pomodoro';
 }
 
@@ -34,8 +36,7 @@ function timerPomo() {
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    progress.style.height = (progressHeight * 100) / setTimePomo + '%';
-    ++progressHeight;
+    progressBar(timer, setTimePomo);
 
     if (--timer < 0) {
       pomo++
@@ -58,12 +59,10 @@ function timerPomo() {
 function timerBreak() {
   let timer = setTimeBreak;
 
-  progressHeight = timer; 
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    progress.style.height = ((progressHeight * 100) / setTimeBreak) + '%';
-    progressHeight--;
+    progressBar(timer, setTimeBreak);
 
     if (--timer < 0) {
       clearInterval(setnterval);
@@ -77,12 +76,10 @@ function timerBreak() {
 function timerLongBreak() {
   let timer = setTimeLongBreak;
 
-  progressHeight = timer; 
   setnterval = setInterval(function() {
     timerConfig(timer);
 
-    progress.style.height = (progressHeight * 100) / setTimeLongBreak + '%';
-    progressHeight--;
+    progressBar(timer, setTimeLongBreak);
 
     if (--timer < 0) {
       clearInterval(setnterval);
