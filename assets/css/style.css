@@ -50,15 +50,16 @@ main {
 .controls__play {
   background-color: transparent;
   border: none;
-  color: #fff;
+  color: #d14d4d;
   cursor: pointer;
   font-family: 'Fugaz One', cursive;
-  font-size: 24px;
+  font-size: 22px;
   margin: 0 1em;
   padding: 5px;
   letter-spacing: 2px;
+  text-shadow: 0px 0px 3px rgba(0,0,0,.9);
   text-transform: uppercase;
-  transition: all .1s;
+  transition: all 1s;
   width: 100px;
 }
 

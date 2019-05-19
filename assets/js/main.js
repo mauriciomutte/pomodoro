@@ -37,6 +37,9 @@ function timerPomo() {
     timerConfig(timer);
 
     progressBar(timer, setTimePomo);
+    btnStart.innerHTML = 'Reset';
+    btnStart.style.color = '#fff';
+
 
     if (--timer < 0) {
       pomo++
