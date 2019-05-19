@@ -40,7 +40,7 @@ main {
 
 /* DISPLAY */
 .display {
-  font-size: 10vw;
+  font-size: 12vh;
   letter-spacing: 10px;
   max-width: 500px; 
   text-shadow: 5px 0px 1px rgba(0,0,0,.7);
@@ -68,4 +68,10 @@ main {
 
 .controls__play::-moz-focus-inner {
   border: 0;
+}
+
+@media (min-width: 800px) {
+  .display {
+    font-size: 8vw;
+  }
 }
