@@ -50,7 +50,7 @@ main {
 .controls__play {
   background-color: transparent;
   border: none;
-  color: #d14d4d;
+  color: #fff;
   cursor: pointer;
   font-family: 'Fugaz One', cursive;
   font-size: 22px;
